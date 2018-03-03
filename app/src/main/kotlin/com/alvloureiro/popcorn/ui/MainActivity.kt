@@ -1,7 +1,8 @@
-package com.alvloureiro.popcorn
+package com.alvloureiro.popcorn.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.alvloureiro.popcorn.R
 
 class MainActivity : AppCompatActivity() {
 
