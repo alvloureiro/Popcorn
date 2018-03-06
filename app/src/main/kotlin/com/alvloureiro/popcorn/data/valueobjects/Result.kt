@@ -3,7 +3,7 @@ package com.alvloureiro.popcorn.data.valueobjects
 import com.google.gson.annotations.Expose
 
 
-data class Result<T> (
+data class Result(
         @Expose
         var page: Int? = null,
 
@@ -14,6 +14,6 @@ data class Result<T> (
         var total_pages: Int? = null,
 
         @Expose
-        var results: List<T>? = null
+        var results: ArrayList<Movie>? = null
 
 ): VO
