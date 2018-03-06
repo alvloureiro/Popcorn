@@ -25,7 +25,7 @@ import javax.inject.Singleton
 
 @Module class NetworkModule(private val activity: AppCompatActivity) {
     private companion object {
-        const val CACHE_SIZE = 100 * 1024 * 1024 //100MB
+        const val CACHE_SIZE = 10 * 1024 * 1024 //10MB
         const val OKHTTP_READ_TIMEOUT = 40
         const val OKHTTP_WRITE_TIMEOUT = 40
     }
