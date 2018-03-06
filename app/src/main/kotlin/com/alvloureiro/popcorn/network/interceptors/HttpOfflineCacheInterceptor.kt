@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class HttpOfflineCacheInterceptor(val app: PopcornApplication): Interceptor {
     private companion object {
-        const val MAX_STALE = 10
+        const val MAX_STALE = 7
     }
     override fun intercept(chain: Interceptor.Chain?): Response {
         var request = chain?.request()

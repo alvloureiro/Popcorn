@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit
 
 class HttpCacheInterceptor: Interceptor {
     companion object {
-        val CACHE_CONTROL = "Cache-Control"
-        val MAX_AGE = 10
+        const val CACHE_CONTROL = "Cache-Control"
+        const val MAX_AGE = 3
     }
 
     override fun intercept(chain: Interceptor.Chain?): Response {
