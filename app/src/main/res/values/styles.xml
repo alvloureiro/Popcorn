@@ -36,6 +36,8 @@
         <item name="colorAccent">@color/material_red_a700</item>
     </style>
 
+    <style name="AppTheme.RatingBar.Small" parent="Widget.AppCompat.RatingBar.Small" />
+
     <!-- Light App Bar Theme -->
     <style name="AppTheme.AppBar.Light" parent="ThemeOverlay.AppCompat.ActionBar" />
 
