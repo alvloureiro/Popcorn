@@ -18,7 +18,7 @@ class MovieDBViewModel @Inject constructor(private val movieDataDataModel: TMDBD
         const val DELAY_TIME: Long = 15
     }
 
-    val viewModelStates: PublishSubject<AppState<List<VO>>> = PublishSubject.create()
+    val viewModelStates: PublishSubject<AppState<VO>> = PublishSubject.create()
 
     private val mDisposable: CompositeDisposable = CompositeDisposable()
 
@@ -29,10 +29,10 @@ class MovieDBViewModel @Inject constructor(private val movieDataDataModel: TMDBD
                 ?.delay(DELAY_TIME, TimeUnit.SECONDS) // this is to simulate state loading a little
                 ?.subscribe(
                         {
-                            movies -> viewModelStates.onNext(
+                            result -> viewModelStates.onNext(
                                                         AppState(
                                                                 APP_DID_FETCH_MOVIES_SUCCESS,
-                                                                movies
+                                                                result
                                                         )
                         )
                         },
