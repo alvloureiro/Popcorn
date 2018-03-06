@@ -1,7 +1,6 @@
 package com.alvloureiro.popcorn.api
 
 import com.alvloureiro.popcorn.data.valueobjects.GenresResult
-import com.alvloureiro.popcorn.data.valueobjects.Movie
 import com.alvloureiro.popcorn.data.valueobjects.Result
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -17,11 +16,11 @@ interface MoviesDataBase {
     }
 
     @GET(BASE_ENDPOINT + GET_UPCOMING)
-    fun upcomingMovies(@Query("page") page: Int): Observable<Result<Movie>>?
+    fun upcomingMovies(@Query("page") page: Int): Observable<Result>?
 
     @GET(BASE_ENDPOINT + GET_GENRE_LIST)
     fun genres(): Observable<GenresResult>?
 
     @GET(BASE_ENDPOINT + GET_SEARCH_MOVIE)
-    fun searchMovie(@Query("query") query: String, @Query("page") page: Int): Observable<Result<Movie>>?
+    fun searchMovie(@Query("query") query: String, @Query("page") page: Int): Observable<Result>?
 }
