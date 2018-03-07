@@ -191,10 +191,13 @@ class MainActivity : AppCompatActivity() {
             }
             APP_DID_FETCH_MOVIES_FAIL -> {
                 progressBar?.hide()
-                Toast.makeText(this, "Fail to get upcoming movies", Toast.LENGTH_LONG).show()
-            } else -> {
-                Log.d(TAG, "else branch")
-            }
+                btnRefetch?.show()
+                Toast.makeText(
+                        this,
+                        getString(R.string.label_toast_did_fetch_movies_fail_text),
+                        Toast.LENGTH_LONG
+                ).show()
+            } else -> {}
         }
     }
 
@@ -210,9 +213,16 @@ class MainActivity : AppCompatActivity() {
                 if(mLoadingScrolling) {
                     if ((visibleItems + pastItems) >= totalItems) {
                         mLoadingScrolling = false
+
                         if (mCurrentPage < mMaxPages) {
                             mCurrentPage++
                             mViewModel.upcomingMovies(mCurrentPage)
+                        } else {
+                            Toast.makeText(
+                                    recyclerView?.context,
+                                    recyclerView?.context?.getString(R.string.label_toast_reach_end_list_text),
+                                    Toast.LENGTH_LONG
+                            ).show()
                         }
                     }
                 }
