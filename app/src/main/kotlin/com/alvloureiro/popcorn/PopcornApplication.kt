@@ -28,7 +28,7 @@ class PopcornApplication: Application() {
 
     val preferences: SharedPreferences by lazy {
         baseContext.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE)
-    }!!
+    }
 
     override fun onCreate() {
         super.onCreate()
