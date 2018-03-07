@@ -1,11 +1,9 @@
 package com.alvloureiro.popcorn.ui.adapter
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import com.alvloureiro.popcorn.R
-import com.alvloureiro.popcorn.data.valueobjects.Genre
 import com.alvloureiro.popcorn.data.valueobjects.Movie
 import com.alvloureiro.popcorn.extensions.*
 import kotlinx.android.synthetic.main.moviecard_item.view.*
@@ -43,10 +41,14 @@ class MovieListViewAdapter
                 context?.app?.preferences?.getString(it, "")
             }
 
-            movieGenres.text = context?.getString(
-                    R.string.label_movie_genres_text,
-                    genres?.reduce{ displayGenres, genre -> displayGenres?.plus(genre)?.plus("\n")}
-            )
+            if (genres?.isNotEmpty() as Boolean) {
+                movieGenres.text = context?.getString(
+                        R.string.label_movie_genres_text,
+                        genres.reduce{ displayGenres, genre -> displayGenres?.plus(genre)?.plus("\n")}
+                )
+            } else {
+                movieGenres.text = context.getString(R.string.label_movie_genres_text, "")
+            }
 
             setOnClickListener{
                 listener(item)
