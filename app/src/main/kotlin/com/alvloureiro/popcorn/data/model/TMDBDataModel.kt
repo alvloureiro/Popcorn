@@ -9,6 +9,7 @@ import javax.inject.Singleton
 
 @Singleton
 class TMDBDataModel @Inject constructor(private val moviesDataBase: MoviesDataBase){
+
     fun upComingMovies(page: Int = 1): Observable<Result>? = moviesDataBase.upcomingMovies(page)
 
     fun genres(): Observable<GenresResult>? {
