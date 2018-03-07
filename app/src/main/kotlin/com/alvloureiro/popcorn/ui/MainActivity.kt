@@ -87,8 +87,15 @@ class MainActivity : AppCompatActivity() {
         movieListView?.layoutManager = mLayoutManager
 
         btnRefetch?.setOnClickListener {
-            mViewModel.upcomingMovies(1)
-            (it as Button).hide()
+            progressBar.show()
+
+            if (!app.preferences.contains(IS_GENRES_FETCHED)) {
+                mViewModel.movieGenres()
+            }
+
+            mViewModel.upcomingMovies(mCurrentPage)
+
+            it.hide()
         }
 
         if (mUpcomingMovies == null) {
