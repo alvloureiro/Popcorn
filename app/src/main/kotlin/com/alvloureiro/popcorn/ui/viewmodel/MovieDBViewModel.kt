@@ -8,14 +8,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 
 class MovieDBViewModel @Inject constructor(private val movieDataDataModel: TMDBDataModel) {
     companion object {
         const val TAG = "MovieDBViewModel"
-        const val DELAY_TIME: Long = 15
     }
 
     val viewModelStates: PublishSubject<AppState<VO>> = PublishSubject.create()
@@ -26,7 +24,6 @@ class MovieDBViewModel @Inject constructor(private val movieDataDataModel: TMDBD
         mDisposable.addAll(movieDataDataModel.upComingMovies(page)
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeOn(Schedulers.io())
-                ?.delay(DELAY_TIME, TimeUnit.SECONDS) // this is to simulate state loading a little
                 ?.subscribe(
                         {
                             result -> viewModelStates.onNext(
@@ -42,7 +39,6 @@ class MovieDBViewModel @Inject constructor(private val movieDataDataModel: TMDBD
     }
 
     fun movieGenres() {
-        viewModelStates.onNext(AppState(APP_LOADING))
         mDisposable.addAll(movieDataDataModel.genres()
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeOn(Schedulers.io())
