@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import com.alvloureiro.popcorn.R
 import com.alvloureiro.popcorn.data.valueobjects.*
@@ -118,9 +116,9 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
     }
 
-    override fun onStop() {
+    override fun onDestroy() {
         movieListView?.removeOnScrollListener(mScrollListener)
-        super.onStop()
+        super.onDestroy()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
