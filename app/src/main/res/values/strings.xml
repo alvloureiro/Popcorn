@@ -7,4 +7,6 @@
     <string name="label_button_refetch">Refetch API</string>
     <string name="label_sinopse_text">Sinopse</string>
     <string name="label_movie_genres_text">%s</string>
+    <string name="label_toast_reach_end_list_text">You reach the end of upcoming book list</string>
+    <string name="label_toast_did_fetch_movies_fail_text">Fail to get upcoming movies</string>
 </resources>
